@@ -1,7 +1,4 @@
-function play(){
-    let player = document.querySelector("audio");
-    player.play();
-}
+
 
 function pause(){
     let player = document.querySelector("audio");
@@ -45,8 +42,18 @@ function updateCurrentTime(){
     player.currentTime = seekbar.value;
 }
 
-let playerButton = document.querySelector("#play-button");
-playerButton.addEventListener("click", play);
+function updatePlaybackrate(){
+    let player = document.querySelector("audio");
+    let seekbar = document.querySelecer("playbackratio");
+    let rate = seekbar.value;
+
+player.playbackRate = rate;
+
+}
+
+function setEventhandler(){
+let playButton = document.querySelector("#play-button");
+playButton.addEventListener("click", play);
 
 let pauseButton = document.querySelector("#pause-button");
 pauseButton.addEventListener("click", pause);
@@ -61,6 +68,10 @@ audio.addEventListener("timeupdate", updateSeekbar);
 let seekbar = document.querySelector("#seek-bar");
 seekbar.addEventListener("input", updateCurrentTime);
 
+let playbackRate = document.querySelector("audio");
+playbackRate.addEventListener("input",updatePlaybackRate);
+
+}
 
 
 
